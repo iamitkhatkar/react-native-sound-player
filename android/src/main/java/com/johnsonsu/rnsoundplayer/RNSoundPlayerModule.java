@@ -201,6 +201,11 @@ public class RNSoundPlayerModule extends ReactContextBaseJavaModule {
             WritableMap onFinishedLoadingURLParams = Arguments.createMap();
             onFinishedLoadingURLParams.putBoolean("success", true);
             onFinishedLoadingURLParams.putString("url", url);
+             try {
+              resume();
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
             sendEvent(getReactApplicationContext(), EVENT_FINISHED_LOADING_URL, onFinishedLoadingURLParams);
           }
         }
