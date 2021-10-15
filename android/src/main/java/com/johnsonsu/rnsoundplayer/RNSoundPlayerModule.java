@@ -55,7 +55,11 @@ public class RNSoundPlayerModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void playUrl(String url) throws IOException {
-    prepareUrl(url);
+//    prepareUrl(url);
+    this.mediaPlayer.stop();
+    this.mediaPlayer = new MediaPlayer();
+    this.mediaPlayer.setDataSource(url);
+    this.mediaPlayer.prepare();
     this.resume();
   }
 
