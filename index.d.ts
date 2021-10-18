@@ -51,6 +51,10 @@ declare module "react-native-sound-player" {
     getInfo: () => Promise<{ currentTime: number; duration: number }>;
     /** @deprecated Please use addEventListener and remove your own listener by calling yourSubscriptionObject.remove(). */
     unmount: () => void;
+    /* mute player-> available for android */
+    mutePlayer: () => void;
+  /* unmute plyaer -> available for android */
+   unMutePlayer: () => void;
   }
 
   const SoundPlayer: SoundPlayerType;

@@ -15,6 +15,22 @@ export default {
     RNSoundPlayer.playSoundFile(name, type);
   },
 
+  mutePlayer: () => {
+    if(Platform.OS === 'android'){
+      RNSoundPlayer.mutePlayer();
+    }else{
+      RNSoundPlayer.setVolume(0.0);
+    }
+  },
+
+  unMutePlayer: () => {
+    if(Platform.OS === 'android'){
+      RNSoundPlayer.unMutePlayer();
+    }else{
+      RNSoundPlayer.setVolume(1.0);
+    }
+  },
+
   playSoundFileWithDelay: (name: string, type: string, delay: number) => {
     RNSoundPlayer.playSoundFileWithDelay(name, type, delay);
   },
