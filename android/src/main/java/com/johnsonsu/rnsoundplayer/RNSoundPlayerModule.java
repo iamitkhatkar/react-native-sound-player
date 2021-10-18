@@ -1,9 +1,13 @@
 package com.johnsonsu.rnsoundplayer;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
+import android.util.Log;
+
 import java.io.File;
 
 import java.io.IOException;
@@ -67,6 +71,20 @@ public class RNSoundPlayerModule extends ReactContextBaseJavaModule {
   public void loadUrl(String url) throws IOException {
     prepareUrl(url);
   }
+
+
+  @ReactMethod
+  public void mutePlayer() {
+    AudioManager audioManager = (AudioManager) reactContext.getSystemService(Context.AUDIO_SERVICE);
+    audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+  }
+
+  @ReactMethod
+  public void unMutePlayer() {
+    AudioManager audioManager = (AudioManager) reactContext.getSystemService(Context.AUDIO_SERVICE);
+    audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+  }
+
 
   @ReactMethod
   public void pause() throws IllegalStateException {
