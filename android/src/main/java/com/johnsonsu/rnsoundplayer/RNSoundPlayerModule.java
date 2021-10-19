@@ -47,6 +47,11 @@ public class RNSoundPlayerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void unmount(){
+    this.mediaPlayer = null;
+  }
+
+  @ReactMethod
   public void playSoundFile(String name, String type) throws IOException {
     mountSoundFile(name, type);
     this.resume();
