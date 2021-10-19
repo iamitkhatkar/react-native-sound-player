@@ -19,6 +19,7 @@ declare module "react-native-sound-player" {
     playSoundFileWithDelay: (name: string, type: string, delay: number) => void;
     loadSoundFile: (name: string, type: string) => void;
     playUrl: (url: string) => void;
+    playUrlWithNewPlayer: (url: string) => void;
     loadUrl: (url: string) => void;
     /** @deprecated  please use addEventListener*/
     onFinishedPlaying: (callback: (success: boolean) => unknown) => void;

@@ -16,17 +16,17 @@ export default {
   },
 
   mutePlayer: () => {
-    if(Platform.OS === 'android'){
+    if (Platform.OS === "android") {
       RNSoundPlayer.mutePlayer();
-    }else{
+    } else {
       RNSoundPlayer.setVolume(0.0);
     }
   },
 
   unMutePlayer: () => {
-    if(Platform.OS === 'android'){
+    if (Platform.OS === "android") {
       RNSoundPlayer.unMutePlayer();
-    }else{
+    } else {
       RNSoundPlayer.setVolume(1.0);
     }
   },
@@ -45,6 +45,14 @@ export default {
 
   playUrl: (url: string) => {
     RNSoundPlayer.playUrl(url);
+  },
+
+  playUrlWithNewPlayer: (url: string) => {
+    if (Platform.OS === "android") {
+      RNSoundPlayer.playUrlWithNewPlayer(url);
+    } else {
+      RNSoundPlayer.playUrl(url);
+    }
   },
 
   loadUrl: (url: string) => {
