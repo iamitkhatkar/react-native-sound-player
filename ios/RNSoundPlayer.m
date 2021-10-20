@@ -101,12 +101,26 @@ RCT_EXPORT_METHOD(setMixAudio:(BOOL) on) {
 }
 
 RCT_EXPORT_METHOD(setVolume:(float)volume) {
+    NSLog(@"words :: %@", self.player);
     if (self.player != nil) {
         [self.player setVolume: volume];
     }
     if (self.avPlayer != nil) {
         [self.avPlayer setVolume: volume];
     }
+}
+
+RCT_EXPORT_METHOD(unmount) {
+    self.player = nil;
+    self.avPlayer = nil;
+}
+
+RCT_EXPORT_METHOD(mutePlayer) {
+    [self.avPlayer setMuted:true];
+}
+
+RCT_EXPORT_METHOD(unMutePlayer) {
+    [self.avPlayer setMuted:false];
 }
 
 RCT_REMAP_METHOD(getInfo,
